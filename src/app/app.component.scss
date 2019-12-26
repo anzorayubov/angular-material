@@ -47,19 +47,6 @@ p {
   align-items: center;
 }
 
-svg.material-icons {
-  height: 24px;
-  width: auto;
-}
-
-svg.material-icons:not(:last-child) {
-  margin-right: 8px;
-}
-
-a:hover {
-  color: #125699;
-}
-
 svg#clouds {
   position: fixed;
   bottom: -160px;
@@ -67,7 +54,6 @@ svg#clouds {
   z-index: -10;
   width: 1920px;
 }
-
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {

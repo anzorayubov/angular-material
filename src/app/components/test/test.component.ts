@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-test',
@@ -7,13 +7,23 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-  dateOfBirth: number;
-  sex: string;
+
+  form: FormGroup;
+
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.dateOfBirth);
+    this.form = new FormGroup({
+      email: new FormControl('', [ Validators.email, Validators.required] ),
+      name: new FormControl('', [ Validators.required] ),
+      dateOfBirth: new FormControl('', [ Validators.required] ),
+      child: new FormControl('', []),
+
+    });
   }
 
+  submit() {
+    console.log(this.form);
+  }
 }
