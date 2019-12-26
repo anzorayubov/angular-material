@@ -1,0 +1,67 @@
+<div class="container">
+  <form class="card">
+    <h1>Angular Forms</h1>
+    <br>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="ФИО">
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <mat-label>Пол</mat-label>
+        <mat-select>
+          <mat-option value="Мужской">Мужской</mat-option>
+          <mat-option value="Женский">Женский</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control icon">
+      <mat-form-field>
+        <mat-label>Дата рождения</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Выберете дату">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <!-- показывать если больше 18 лет  -->
+    <div class="form-control">
+      <mat-form-field>
+        <mat-label>Семейное положение</mat-label>
+        <mat-select>
+          <mat-option value="Замужем">Замужем</mat-option>
+          <mat-option value="Женат">Женат</mat-option>
+          <mat-option value="В разводе">В разводе</mat-option>
+          <mat-option value="нет">нет</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Количество детей">
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Email">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="comment">
+      <textarea matInput placeholder="Комментарий"></textarea>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary">Сохранить</button>
+
+
+  </form>
+</div>
+
+
+
