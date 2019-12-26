@@ -9,6 +9,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class TestComponent implements OnInit {
 
   form: FormGroup;
+  dateOfBirth;
 
   constructor() {
   }
@@ -16,7 +17,7 @@ export class TestComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl('', [ Validators.email, Validators.required] ),
-      name: new FormControl('', [ Validators.required] ),
+      name: new FormControl('', [ Validators.required, Validators.pattern('^[?!,.а-яА-ЯёЁ0-9\\s]+$') ]),
       dateOfBirth: new FormControl('', [ Validators.required] ),
       child: new FormControl('', []),
 

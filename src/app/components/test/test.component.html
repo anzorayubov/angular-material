@@ -22,11 +22,12 @@
     <div class="form-control icon">
       <mat-form-field>
         <mat-label>Дата рождения</mat-label>
-        <input matInput [matDatepicker]="picker" placeholder="Выберете дату" formControlName="dateOfBirth" >
+        <input [(ngModel)]="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Выберете дату" formControlName="dateOfBirth" >
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
+
     <!-- показывать если больше 18 лет  -->
     <div class="form-control">
       <mat-form-field>
