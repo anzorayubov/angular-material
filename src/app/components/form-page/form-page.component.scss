@@ -1,0 +1,14 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  .card {
+    padding: 1rem;
+    border: #ccc 1px dotted;
+    margin: 0.7rem 0;
+    display: flex;
+    flex-direction: column;
+
+  }
+}

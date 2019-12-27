@@ -1,0 +1,40 @@
+<div class="container" *ngFor="let data of data">
+  <div class="card">
+    <h2 style="color: red">Сюда надо подгрузить данные со страницы формы</h2>
+    <div class="item">
+      <h3>ФИО</h3>
+      <p>{{data.name}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>ПОЛ</h3>
+      <p>{{data.sex}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>Дата рождения</h3>
+      <p>{{data.dateOfBirth}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>Семейное положение</h3>
+      <p>{{data.familyStatus}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>Количество детей</h3>
+      <p>{{data.child}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>Email</h3>
+      <p>{{data.email}}</p>
+      <mat-divider></mat-divider>
+    </div>
+    <div class="item">
+      <h3>Комментарий</h3>
+      <p>{{data.comment}}</p>
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+</div>

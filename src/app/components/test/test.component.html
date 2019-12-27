@@ -5,41 +5,41 @@
 
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="ФИО" formControlName="name" >
+        <input required matInput placeholder="ФИО" formControlName="name" >
       </mat-form-field>
     </div>
 
     <div class="form-control">
       <mat-form-field>
         <mat-label>Пол</mat-label>
-        <mat-select>
+        <mat-select required>
           <mat-option value="Мужской">Мужской</mat-option>
           <mat-option value="Женский">Женский</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <div class="form-control icon">
-      <mat-form-field>
-        <mat-label>Дата рождения</mat-label>
-        <input [(ngModel)]="dateOfBirth" matInput [matDatepicker]="picker" placeholder="Выберете дату" formControlName="dateOfBirth" >
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
+      <div class="form-control icon">
+        <mat-form-field>
+          <mat-label>Дата рождения</mat-label>
+          <input required matInput [matDatepicker]="picker" placeholder="Выберете дату" formControlName="dateOfBirth" >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- показывать если больше 18 лет  -->
+      <div class="form-control" *ngIf="dateOfBirthr > 18">
+        <mat-form-field>
+          <mat-label>Семейное положение</mat-label>
+          <mat-select required>
+            <mat-option value="Замужем">Замужем</mat-option>
+            <mat-option value="Женат">Женат</mat-option>
+            <mat-option value="В разводе">В разводе</mat-option>
+            <mat-option value="нет">нет</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-    <!-- показывать если больше 18 лет  -->
-    <div class="form-control">
-      <mat-form-field>
-        <mat-label>Семейное положение</mat-label>
-        <mat-select>
-          <mat-option value="Замужем">Замужем</mat-option>
-          <mat-option value="Женат">Женат</mat-option>
-          <mat-option value="В разводе">В разводе</mat-option>
-          <mat-option value="нет">нет</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
 
     <div class="form-control">
       <mat-form-field>
@@ -49,15 +49,15 @@
 
     <div class="form-control" >
       <mat-form-field>
-        <input matInput placeholder="Email" formControlName="email" >
+        <input required matInput placeholder="Email" formControlName="email" >
       </mat-form-field>
     </div>
 
     <mat-form-field class="comment">
-      <textarea matInput placeholder="Комментарий"></textarea>
+      <textarea matInput placeholder="Комментарий" formControlName="comment"></textarea>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" >Сохранить</button>
+    <button routerLink="form-page" mat-raised-button color="primary" [disabled]="form.invalid" type="submit" >Сохранить</button>
 
   </form>
 </div>
