@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {of} from 'rxjs';
-import {Data} from '../data';
+import {Component, OnInit} from '@angular/core';
+import {Service} from '../service';
 
 @Component({
   selector: 'app-form-page',
@@ -8,15 +7,15 @@ import {Data} from '../data';
   styleUrls: ['./form-page.component.scss']
 })
 export class FormPageComponent implements OnInit {
-  data = Data;
+  data;
 
-  constructor() {
+  constructor(private service: Service) {
   }
 
 
-  // stream$ = of(this.Data)
-  //   .subscribe(value => console.log(value));
-
   ngOnInit() {
+    this.service.getData();
+    this.data = this.service.formData;
+    // console.log(this.data);
   }
 }

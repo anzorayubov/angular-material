@@ -1,6 +1,6 @@
 <div class="container" *ngFor="let data of data">
   <div class="card">
-    <h2 style="color: red">Сюда надо подгрузить данные со страницы формы</h2>
+    <h2 style="color: red">Тут данные со страницы формы</h2>
     <div class="item">
       <h3>ФИО</h3>
       <p>{{data.name}}</p>
@@ -13,7 +13,7 @@
     </div>
     <div class="item">
       <h3>Дата рождения</h3>
-      <p>{{data.dateOfBirth}}</p>
+      <p>{{data.dateOfBirth | date}}</p>
       <mat-divider></mat-divider>
     </div>
     <div class="item">

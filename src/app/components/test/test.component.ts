@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Data} from '../data';
+import {Service} from '../service';
 
 @Component({
   selector: 'app-test',
@@ -11,7 +11,7 @@ export class TestComponent implements OnInit {
   form: FormGroup;
   dateOfBirthr;
 
-  constructor() {
+  constructor(private service: Service) {
   }
 
   ngOnInit() {
@@ -20,7 +20,9 @@ export class TestComponent implements OnInit {
       name: new FormControl('', [Validators.pattern('^[?!,.а-яА-ЯёЁ0-9\\s]+$')]),
       dateOfBirth: new FormControl('', []),
       comment: new FormControl('', [Validators.pattern('^[?!,.а-яА-ЯёЁ0-9\\s]+$')]),
-      child: new FormControl('', [Validators.pattern('[0-9]')])
+      child: new FormControl('', [Validators.pattern('[0-9]')]),
+      sex: new FormControl('', []),
+      familyStatus: new FormControl('', []),
     });
 
     this.form.get('dateOfBirth').valueChanges
@@ -31,7 +33,7 @@ export class TestComponent implements OnInit {
   }
 
   submit() {
-    Data.push(this.form.value);
-    console.log(Data);
+    this.service.push(this.form.value);
+    // console.log(this.form.value);
   }
 }

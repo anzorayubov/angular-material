@@ -8,6 +8,7 @@ import {MaterialModule} from './material-module';
 import { TestComponent } from './components/test/test.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FormPageComponent } from './components/form-page/form-page.component';
+import {Service} from './components/service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormPageComponent } from './components/form-page/form-page.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [Service],
   bootstrap: [AppComponent]
 })
 export class AppModule {
