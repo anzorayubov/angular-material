@@ -31,8 +31,7 @@
       <mat-form-field>
         <mat-label>Семейное положение</mat-label>
         <mat-select required formControlName="familyStatus">
-          <mat-option value="Замужем">Замужем</mat-option>
-          <mat-option value="Женат">Женат</mat-option>
+          <mat-option value="Замужем">Замужем/Женат</mat-option>
           <mat-option value="В разводе">В разводе</mat-option>
           <mat-option value="нет">нет</mat-option>
         </mat-select>
@@ -55,7 +54,7 @@
       <textarea matInput placeholder="Комментарий" formControlName="comment"></textarea>
     </mat-form-field>
 
-    <button [disabled]="form.invalid" routerLink="form-page" mat-raised-button color="primary" (click)="submit()">Сохранить</button>
+    <button [disabled]="form.invalid" routerLink="form-page" mat-raised-button color="primary" (click)="submit()"> Сохранить </button>
 
   </form>
 </div>

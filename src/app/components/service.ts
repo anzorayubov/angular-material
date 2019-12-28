@@ -4,6 +4,7 @@ export class Service {
   getData() {
     return this.formData;
   }
+
   push(v) {
     this.formData.push(v);
   }

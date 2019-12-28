@@ -12,7 +12,6 @@ export class FormPageComponent implements OnInit {
   constructor(private service: Service) {
   }
 
-
   ngOnInit() {
     this.service.getData();
     this.data = this.service.formData;
