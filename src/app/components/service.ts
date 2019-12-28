@@ -1,7 +1,5 @@
 export class Service {
-  formData = [
-
-  ];
+  formData = [];
 
   getData() {
     return this.formData;

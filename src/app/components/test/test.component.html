@@ -55,7 +55,7 @@
       <textarea matInput placeholder="Комментарий" formControlName="comment"></textarea>
     </mat-form-field>
 
-    <button routerLink="form-page" mat-raised-button color="primary" (click)="submit()">Сохранить</button>
+    <button [disabled]="form.invalid" routerLink="form-page" mat-raised-button color="primary" (click)="submit()">Сохранить</button>
 
   </form>
 </div>
