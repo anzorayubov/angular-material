@@ -1,20 +1,129 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img width="40" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="/>
-  <span>Welcome</span>
+  <img width="40" alt="Angular Logo"
+       src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="/>
+  <span>Создание перевода</span>
   <div class="spacer"></div>
 </div>
+<form [formGroup]="form">
+  <div class="container">
+    <div class="links row">
+      <a href="#">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="444.819px" height="444.819px" viewBox="0 0 444.819 444.819" style="enable-background:new 0 0 444.819 444.819;" xml:space="preserve"> <g> <path d="M434.252,208.708L248.387,22.843c-7.042-7.043-15.693-10.564-25.977-10.564c-10.467,0-19.036,3.521-25.697,10.564 L10.848,208.708C3.615,215.94,0,224.604,0,234.692c0,9.897,3.619,18.459,10.848,25.693l21.411,21.409 c6.854,7.231,15.42,10.855,25.697,10.855c10.278,0,18.842-3.624,25.697-10.855l83.939-83.651v200.998 c0,9.89,3.567,17.936,10.706,24.126c7.139,6.184,15.752,9.273,25.837,9.273h36.545c10.089,0,18.698-3.09,25.837-9.273 c7.139-6.188,10.712-14.236,10.712-24.126V198.144l83.938,83.651c6.848,7.231,15.413,10.855,25.7,10.855 c10.082,0,18.747-3.624,25.975-10.855l21.409-21.409c7.043-7.426,10.567-15.988,10.567-25.693 C444.819,224.795,441.295,216.134,434.252,208.708z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+      </a>
+      <a href="#">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="438.542px" height="438.542px" viewBox="0 0 438.542 438.542" style="enable-background:new 0 0 438.542 438.542;" xml:space="preserve"> <g> <path d="M427.408,19.697c-7.803-3.23-14.463-1.902-19.986,3.999l-37.116,36.834C349.94,41.305,326.672,26.412,300.5,15.848 C274.328,5.285,247.251,0.003,219.271,0.003c-29.692,0-58.052,5.808-85.08,17.417c-27.03,11.61-50.347,27.215-69.951,46.82 c-19.605,19.607-35.214,42.921-46.824,69.949C5.807,161.219,0,189.575,0,219.271c0,29.687,5.807,58.05,17.417,85.079 c11.613,27.031,27.218,50.347,46.824,69.952c19.604,19.599,42.921,35.207,69.951,46.818c27.028,11.611,55.388,17.419,85.08,17.419 c32.736,0,63.865-6.899,93.363-20.7c29.5-13.795,54.625-33.26,75.377-58.386c1.52-1.903,2.234-4.045,2.136-6.424 c-0.089-2.378-0.999-4.329-2.711-5.852l-39.108-39.399c-2.101-1.711-4.473-2.566-7.139-2.566c-3.045,0.38-5.232,1.526-6.566,3.429 c-13.895,18.086-30.93,32.072-51.107,41.977c-20.173,9.894-41.586,14.839-64.237,14.839c-19.792,0-38.684-3.854-56.671-11.564 c-17.989-7.706-33.551-18.127-46.682-31.261c-13.13-13.135-23.551-28.691-31.261-46.682c-7.708-17.987-11.563-36.874-11.563-56.671 c0-19.795,3.858-38.691,11.563-56.674c7.707-17.985,18.127-33.547,31.261-46.678c13.135-13.134,28.693-23.555,46.682-31.265 c17.983-7.707,36.879-11.563,56.671-11.563c38.259,0,71.475,13.039,99.646,39.116l-39.409,39.394 c-5.903,5.711-7.231,12.279-4.001,19.701c3.241,7.614,8.856,11.42,16.854,11.42h127.906c4.949,0,9.23-1.807,12.848-5.424 c3.613-3.616,5.42-7.898,5.42-12.847V36.55C438.542,28.558,434.84,22.943,427.408,19.697z"/> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+      </a>
+      <a href="#">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <path d="M329.956,399.834H182.044c-9.425,0-17.067,7.641-17.067,17.067s7.641,17.067,17.067,17.067h147.911 c9.425,0,17.067-7.641,17.067-17.067S339.381,399.834,329.956,399.834z"/> </g> </g> <g> <g> <path d="M329.956,346.006H182.044c-9.425,0-17.067,7.641-17.067,17.067s7.641,17.067,17.067,17.067h147.911 c9.425,0,17.067-7.641,17.067-17.067S339.381,346.006,329.956,346.006z"/> </g> </g> <g> <g> <path d="M472.178,133.907h-54.303V35.132c0-9.425-7.641-17.067-17.067-17.067H111.192c-9.425,0-17.067,7.641-17.067,17.067v98.775 H39.822C17.864,133.907,0,151.772,0,173.73v171.702c0,21.958,17.864,39.822,39.822,39.822h54.306v91.614 c0,9.425,7.641,17.067,17.067,17.067h289.61c9.425,0,17.067-7.641,17.067-17.067v-91.614h54.306 c21.958,0,39.822-17.864,39.822-39.822V173.73C512,151.773,494.136,133.907,472.178,133.907z M128.258,52.199h255.483v81.708 H128.258V52.199z M383.738,459.801H128.262c0-3.335,0-135.503,0-139.628h255.477C383.738,324.402,383.738,456.594,383.738,459.801 z M400.808,234.122h-43.443c-9.425,0-17.067-7.641-17.067-17.067s7.641-17.067,17.067-17.067h43.443 c9.425,0,17.067,7.641,17.067,17.067S410.234,234.122,400.808,234.122z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+      </a>
+      <a href="#">
+        <svg height="512pt" viewBox="-38 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m231.007812 424.359375c0-31.515625 12.273438-61.148437 34.558594-83.433594 22.285156-22.285156 51.917969-34.558593 83.433594-34.558593 4.007812 0 7.980469.199218 11.914062.589843-11.617187-53.558593-53.332031-96.023437-106.492187-108.707031 24.457031-20.628906 40.019531-51.476562 40.019531-85.894531 0-61.953125-50.402344-112.355469-112.351562-112.355469-61.953125 0-112.355469 50.402344-112.355469 112.351562 0 34.421876 15.566406 65.269532 40.019531 85.894532-62.867187 15-109.753906 71.640625-109.753906 139.03125v111.449218h233.519531c-1.65625-7.925781-2.511719-16.082031-2.511719-24.367187zm0 0"/><path d="m261.359375 424.359375c0 48.402344 39.238281 87.640625 87.640625 87.640625s87.640625-39.238281 87.640625-87.640625-39.238281-87.640625-87.640625-87.640625-87.640625 39.238281-87.640625 87.640625zm134.222656-15.175781v30.351562h-31.40625v31.402344h-30.351562v-31.402344h-31.402344v-30.351562h31.402344v-31.40625h30.351562v31.40625zm0 0"/></svg>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-6 border">
+        <h4>Перевод</h4>
+        <div class="city">
+          <mat-form-field>
+            <mat-label>Страна</mat-label>
+            <select matNativeControl required formControlName="city">
+              <option disabled></option>
+              <option value="Россия">Россия</option>
+              <option value="Украина">Украина</option>
+              <option value="Беларусь">Беларусь</option>
+              <option value="США">США</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Комментарий" formControlName="comment">
+          </mat-form-field>
+        </div>
+        <div class="item">
+          <mat-form-field class="point">
+            <mat-label>Нас.пункт</mat-label>
+            <select matNativeControl formControlName="point">
+              <option disabled></option>
+              <option value="1">пункт-1</option>
+              <option value="2">пункт-2</option>
+              <option value="3">пункт-3</option>
+              <option value="">пункт-4</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field class="cash">
+            <mat-label>Валюта</mat-label>
+            <select matNativeControl formControlName="cash">
+              <option disabled></option>
+              <option value="1">Доллар</option>
+              <option value="2">Евро</option>
+              <option value="3">Сомони</option>
+              <option value="">Юань</option>
+            </select>
+          </mat-form-field>
 
-<div class="content" role="main">
+          <mat-form-field class="text-area">
+            <textarea matInput placeholder="Сообщение получателю"></textarea>
+          </mat-form-field>
+        </div>
 
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+      </div>
 
-  <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
-       viewBox="0 0 2611.084 485.677">
-    <path id="Path_39" data-name="Path 39"
-          d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
-          transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
-</div>
+      <div class="col-6 border">
+        <h4>Отправитель перевода</h4>
+        <div class="row">
+          <div class="item margin">
+            <mat-form-field>
+              <input required matInput placeholder="Фамилия" formControlName="surname">
+            </mat-form-field>
+            <mat-form-field>
+              <input required matInput placeholder="Имя" formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Отчество">
+            </mat-form-field>
+          </div>
+          <div class="item">
+            <mat-form-field class="document">
+              <mat-label>Документ</mat-label>
+              <select matNativeControl required formControlName="document">
+                <option disabled></option>
+                <option value="Россия">Паспорт</option>
+                <option value="Украина">Свидетельство о рождении</option>
+                <option value="Беларусь">Водительские права</option>
+              </select>
+            </mat-form-field>
+            <mat-form-field>
+              <input required matInput placeholder="Серия" formControlName="series">
+            </mat-form-field>
+            <mat-form-field>
+              <input required matInput placeholder="Номер" formControlName="docNumber">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Выдан">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Отчество">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Дата выдачи">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <button [disabled]="form.invalid" (click)="send()" mat-raised-button color="primary">Отправить</button>
+        <button mat-raised-button>Отмена</button>
+      </div>
+    </div>
+
+    <!-- Фоновая картинка -->
+    <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
+         viewBox="0 0 2611.084 485.677">
+      <path id="Path_39" data-name="Path 39"
+            d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+            transform="translate(142.69 -634.312)" fill="#eee"/>
+    </svg>
+  </div>
+</form>
 
 <router-outlet></router-outlet>
