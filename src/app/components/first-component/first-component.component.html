@@ -1,0 +1,64 @@
+<div class="mat-elevation-z8">
+    <table matSort mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="ageInDays">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > ageInDays </th>
+        <td mat-cell *matCellDef="let element"> {{element.ageInDays}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="animalId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header > animalId </th>
+        <td mat-cell *matCellDef="let element"> {{element.animalId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cowId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> cowId </th>
+        <td mat-cell *matCellDef="let element"> {{element.cowId}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="daysInLactation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> daysInLactation </th>
+        <td mat-cell *matCellDef="let element"> {{element.daysInLactation}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deletable">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> deletable </th>
+        <td mat-cell *matCellDef="let element"> {{element.deletable}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="healthIndex">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> healthIndex </th>
+        <td mat-cell *matCellDef="let element"> {{element.healthIndex}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lactationNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> lactationNumber </th>
+        <td mat-cell *matCellDef="let element"> {{element.lactationNumber}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="minValueDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> minValueDateTime </th>
+        <td mat-cell *matCellDef="let element"> {{element.minValueDateTime * 1000 | date:'MM-dd-yyyy' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="reportingDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> reportingDateTime </th>
+        <td mat-cell *matCellDef="let element"> {{element.reportingDateTime * 1000 | date:'MM-dd-yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDateTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> startDateTime </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDateTime * 1000 | date:'MM-dd-yyyy'}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[20, 30, 40]" showFirstLastButtons></mat-paginator>
+  </div>
