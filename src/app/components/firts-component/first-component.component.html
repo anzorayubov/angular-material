@@ -1,0 +1,72 @@
+<main>
+  <header>
+    <p>Files</p>
+    <button id="btn">SORT</button>
+  </header>
+
+  <div class="accordion">
+    <ng-container *ngFor="let item of Data.tree">
+      <div class="toggle">
+        <!-- Folder name-->
+        <div>
+          <a href="#" aria-expanded="false" aria-controls="accordion1"
+             class="accordion-title accordionTitle js-accordionTrigger">
+            {{item.name}}
+
+<!--            <ng-container *ngFor="let i of item.children">-->
+<!--              <p *ngIf="i.type == 'folder'">{{i.hasOwnProperty()}}</p>-->
+<!--            </ng-container>-->
+            <span class="span">{{item.children.length }}</span>
+
+          </a>
+        </div>
+        <!-- Inside folder -->
+        <div class="accordion-content accordionItem is-collapsed" aria-hidden="true">
+          <ng-container *ngFor="let i of item.children">
+            <p *ngIf="i.type != 'folder'">{{i.name}}</p>
+          </ng-container>
+
+          <!-- 2 -->
+
+          <ng-container *ngFor="let child of item.children">
+            <div>
+              <!-- Folder name-->
+              <div *ngIf="child.type == 'folder'">
+                <a href="#" aria-expanded="false" aria-controls="accordion1"
+                   class="accordion-title accordionTitle js-accordionTrigger">
+                  {{child.name}} <span class="span">{{child.children.length}}</span> </a>
+              </div>
+              <!-- Inside folder -->
+              <div class="accordion-content accordionItem is-collapsed" aria-hidden="true">
+                <ng-container *ngFor="let chld of child.children">
+                  <p *ngIf="chld.type != 'folder'">{{chld.name}}</p>
+                </ng-container>
+
+                <!-- 3 -->
+
+                <div *ngFor="let chld of child.children">
+                  <!-- Folder name-->
+                  <div>
+                    <ng-container *ngIf="chld.type == 'folder'">
+                      <a href="#" aria-expanded="false" aria-controls="accordion1"
+                         class="accordion-title accordionTitle js-accordionTrigger">
+                        {{chld.name}} <span class="span">{{chld.children.length}}</span></a>
+                    </ng-container>
+                  </div>
+                  <!-- Inside folder -->
+                  <div class="accordion-content accordionItem is-collapsed" aria-hidden="true">
+                    <ng-container *ngFor="let chld2 of chld.children">
+                      <p> {{chld2.name}} </p>
+                    </ng-container>
+                    <p style="color: coral" *ngIf="chld.type == 'folder' && chld.children.length == 0">empty...</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</main>
