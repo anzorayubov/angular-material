@@ -13,23 +13,19 @@ export class FirstComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    let accordionToggles = document.getElementsByClassName('toggle'),
-      setAria,
-      setAccordionAria,
-      switchAccordion,
-      touchSupported = ('ontouchstart' in window),
-      pointerSupported = ('pointerdown' in window);
+    let accordionToggles = document.getElementsByClassName('toggle')
+      // touchSupported = ('ontouchstart' in window),
+      // pointerSupported = ('pointerdown' in window);
     // console.log(accordionToggles)
-    let skipClickDelay = function (e) {
-      e.preventDefault();
-      e.target.click();
-    }
+    // let skipClickDelay = (e) => {
+    //   e.preventDefault();
+    //   e.target.click();
+    // }
 
-    let setAriaAttr = function (el, ariaType, newProperty) {
+    let setAriaAttr = (el, ariaType, newProperty) => {
       el.setAttribute(ariaType, newProperty);
     };
-    setAccordionAria = function (el1, el2, expanded) {
+    let setAccordionAria = (el1, el2, expanded) => {
       switch (expanded) {
         case "true":
           setAriaAttr(el1, 'aria-expanded', 'true');
@@ -44,14 +40,13 @@ export class FirstComponentComponent implements OnInit {
       }
     };
 
-    switchAccordion = function (e) {
+    let switchAccordion = (e) => {
 
       e.preventDefault();
       const thisAnswer = e.target.parentNode.nextElementSibling;
       const thisQuestion = e.target;
-      const toggle = document.getElementsByClassName('toggle');
 
-      if (thisAnswer.classList.contains('is-collapsed') ) {
+      if (thisAnswer.classList.contains('is-collapsed')) {
         setAccordionAria(thisQuestion, thisAnswer, 'true');
       } else {
         setAccordionAria(thisQuestion, thisAnswer, 'false');
@@ -68,22 +63,14 @@ export class FirstComponentComponent implements OnInit {
     // убрать таймаут // for должен срабатывать в конце
     setTimeout(() => {
       for (let i = 0; i < accordionToggles.length; i++) {
-        if (touchSupported)
-          accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
-
-        if (pointerSupported)
-          accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
-
         accordionToggles[i].addEventListener('click', switchAccordion, false);
-
-          arr.push(accordionToggles[i])
-
+        arr.push(accordionToggles[i])
       }
       console.log(arr)
-    }, 0 )
+    }, 0)
 
     function sort(reverse?) {
-      arr.sort(function (nodeA, nodeB) {
+      arr.sort((nodeA, nodeB) => {
         const textA = nodeA.children[0].firstChild.children[0].innerHTML;
         const textB = nodeB.children[0].firstChild.children[0].innerHTML;
         const numberA = parseInt(textA);

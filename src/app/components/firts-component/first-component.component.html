@@ -11,13 +11,7 @@
         <div>
           <a href="#" aria-expanded="false" aria-controls="accordion1"
              class="accordion-title accordionTitle js-accordionTrigger">
-            {{item.name}}
-
-<!--            <ng-container *ngFor="let i of item.children">-->
-<!--              <p *ngIf="i.type == 'folder'">{{i.hasOwnProperty()}}</p>-->
-<!--            </ng-container>-->
-            <span class="span">{{item.children.length }}</span>
-
+            {{item.name}} <span class="span">{{item.children.length }}</span>
           </a>
         </div>
         <!-- Inside folder -->
