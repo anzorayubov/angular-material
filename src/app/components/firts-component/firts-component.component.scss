@@ -1,0 +1,43 @@
+main {
+  header {
+    text-align: center;
+    font-size: 18px;
+  }
+  .container {margin-top: 30px;
+    position: relative;
+    display: flex;
+
+    width: 900px;
+    height: 900px;
+
+    .orders {
+      border: 1px solid red;
+      width: 900px;
+      height: 900px;
+
+    }
+
+    .add_order {
+      position: absolute;
+      right: 0;
+      font-size: 18px;
+      background-color: #FF6A6A;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      padding: 12px 44px;
+      border-radius: 20px;
+      cursor: pointer;
+      outline: none;
+    }
+    .add_order:hover {
+      background-color: #FF4343;
+    }
+    .add_order:active {
+      background-color: #C53333;
+    }
+    .add_order:disabled {
+      background-color: #FF6A6A;
+    }
+  }
+}
