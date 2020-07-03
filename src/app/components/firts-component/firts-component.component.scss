@@ -3,12 +3,9 @@ main {
     text-align: center;
     font-size: 18px;
   }
-  .container {margin-top: 30px;
+  .container {
+    margin-top: 30px;
     position: relative;
-    display: flex;
-
-    width: 900px;
-    height: 900px;
 
     .orders {
       border: 1px solid red;
