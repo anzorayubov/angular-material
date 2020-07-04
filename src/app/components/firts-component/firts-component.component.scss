@@ -1,22 +1,12 @@
 main {
   header {
-    text-align: center;
-    font-size: 18px;
-  }
-  .container {
-    margin-top: 30px;
-    position: relative;
+    text-align: right;
 
-    .orders {
-      border: 1px solid red;
-      width: 900px;
-      height: 900px;
-
+    p {
+      margin: 0;
     }
 
     .add_order {
-      position: absolute;
-      right: 0;
       font-size: 18px;
       background-color: #FF6A6A;
       color: #fff;
@@ -27,14 +17,354 @@ main {
       cursor: pointer;
       outline: none;
     }
+
     .add_order:hover {
       background-color: #FF4343;
     }
+
     .add_order:active {
       background-color: #C53333;
     }
+
     .add_order:disabled {
       background-color: #FF6A6A;
+    }
+  }
+
+  .container {
+    margin-top: 30px;
+    position: relative;
+
+    .orders {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: lightgray 0 2px 4px;
+
+      .card {
+        .info button {
+          position: absolute;
+          top: 30px;
+          right: 20px;
+          border: 1px solid #B4B4B4;
+          border-radius: 50%;
+          background: #fff;
+          color: #B4B4B4;
+          font-weight: bold;
+          width: 30px;
+          height: 30px;
+          padding: 0;
+          cursor: pointer;
+          outline: none;
+          margin-left: 20px;
+        }
+
+        .info button:after {
+          content: '...';
+          position: absolute;
+          width: 10px;
+          font-size: 18px;
+          height: 5px;
+          left: 6px;
+          top: 0;
+        }
+
+        .info > span {
+          color: black;
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+
+          span {
+            color: #EFA934;
+            margin-right: 72px;
+          }
+        }
+
+        .logo {
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 50px;
+          //margin: 20px;
+          width: 60px;
+          height: 50px;
+        }
+
+        .info {
+          width: 100%;
+          position: relative;
+        }
+
+        ::-webkit-progress-bar {
+          background: lightgray;
+        }
+
+        ::-webkit-progress-value {
+          background: #FF6A6A;
+        }
+
+        ::-moz-progress-bar {
+          background: #FF6A6A;
+        }
+
+        progress {
+          display: block;
+          border-radius: 10px;
+          //width: 537px;
+          height: 2px;
+          margin-top: 14px;
+        }
+
+        .box_1 {
+          display: flex;
+
+          p {
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-size: 20px;
+          }
+
+          .info span {
+            color: #439DD5;
+            font-size: 12px;
+          }
+        }
+
+        .likes {
+          display: flex;
+          color: #8a8a8a;
+
+          p {
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-size: 16px;
+          }
+
+          .logo {
+            background-image: url("src/app/images/like.png");
+          }
+        }
+
+        .reposts {
+          display: flex;
+          color: #8a8a8a;
+
+          p {
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-size: 16px;
+          }
+
+          .logo {
+            background-image: url("src/app/images/repost.png");
+          }
+        }
+
+        .subscribers {
+          display: flex;
+          color: #8a8a8a;
+
+          p {
+            margin-top: 18px;
+            font-size: 16px;
+            margin-bottom: 6px;
+          }
+
+          .logo {
+            background-image: url("src/app/images/holder.png");
+          }
+        }
+
+        .box_1 .logo {
+          background-image: url("src/app/images/avatar.png");
+        }
+      }
+
+      .card > div {
+        //width: 700px;
+        min-height: 64px;
+        border: 1px solid #d3d3d3b8;
+        border-bottom: none;
+      }
+
+      .card > div:last-child {
+        border-bottom: 1px solid #d3d3d3b8;
+      }
+    }
+  }
+
+
+  #modal {
+    width: 620px;
+    height: 332px;
+    border: 1px solid lightgray;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #F7F7F7;
+    position: absolute;
+    top: -350px;
+    transition: top 200ms;
+
+
+    .header {
+      text-align: center;
+      height: 76px;
+      font-size: 30px;
+      font-weight: bold;
+      position: relative;
+
+      p {
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        transform: translate(50%, -50%);
+      }
+    }
+
+    .input {
+
+      padding: 20px;
+      background-color: #fff;
+      height: 120px;
+      box-sizing: border-box;
+
+      p {
+        color: #464646;
+        font-weight: bold;
+        margin-top: 0;
+        font-size: 16px;
+      }
+
+      input {
+        width: 578px;
+        height: 48px;
+        border: 1px solid #ECECEC;
+        border-radius: 5px;
+        padding-left: 20px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      input.reg::placeholder {
+        color: #999999;
+      }
+
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 24px;
+
+      button {
+        width: 280px;
+        height: 40px;
+        text-align: center;
+        border-radius: 20px;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .close {
+        background-color: #BBBBBB;
+      }
+      .close:hover {
+        background-color: #979797;
+      }
+
+      .close:active {
+        background-color: #6F6F6F;
+      }
+
+      .close:disabled {
+        background-color: #BBBBBB;
+      }
+
+      .add {
+        background-color: #FF6A6A;
+      }
+      .add:hover {
+        background-color: #FF4343;
+      }
+
+      .add:active {
+        background-color: #C53333;
+      }
+
+      .add:disabled {
+        background-color: #FF6A6A;
+      }
+    }
+    .sum {
+      text-align: right;
+      margin-right: 28px;
+      font-size: 20px;
+      color: #999999;
+      span {
+        color: black;
+      }
+    }
+  }
+}
+
+@media (min-width: 375px) {
+  .card > div {
+    width: 370px;
+  }
+  progress {
+    width: 288px;
+  }
+  .logo {
+    margin: 20px 10px 20px 4px;
+  }
+  .info > span {
+    flex-direction: column;
+
+    span {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (min-width: 380px) {
+  .card > div {
+    width: 410px;
+  }
+  progress {
+    width: 322px;
+  }
+  .logo {
+    margin: 20px 10px 20px 8px;
+  }
+  .info > span {
+    flex-direction: column;
+
+    span {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .card > div {
+    width: 700px;
+
+  }
+  progress {
+    width: 537px;
+  }
+
+  .logo {
+    margin: 20px;
+  }
+  .info > span {
+    flex-direction: row;
+
+    span {
+      margin-top: 0;
     }
   }
 }

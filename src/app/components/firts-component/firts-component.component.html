@@ -1,11 +1,63 @@
 <main>
-  <header>Orders</header>
-  <hr>
-  <div class="container">
+  <header>
+    <button (click)="addOrder()" class="add_order">Добавить заказ</button>
+  </header>
 
-    <button class="add_order">Добавить заказ</button>
+  <div class="container" id="container">
     <div class="orders">
+      <div class="card">
+        <div class="box_1">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Андрей Иванович</p>
+            <span>Пост Инстаграмм</span>
+          </div>
+        </div>
+        <div class="likes">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Лайки</p>
+            <span>10 000 / 20 000 <span>Приостановлено</span></span>
+            <button class="btn"></button>
+            <progress value="10000" max="20000"></progress>
+          </div>
+        </div>
+        <div class="reposts">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Репосты</p>
+            <span>10 000 / 20 000 <span>Приостановлено</span></span>
+            <button class="btn"></button>
+            <progress value="10000" max="20000"></progress>
+          </div>
+        </div>
+        <div class="subscribers">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Подписчики</p>
+            <span>10 000 / 20 000<span>Приостановлено</span></span>
+            <button class="btn"></button>
+            <progress value="0" max="20000"></progress>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="modal-overlay">
+    <div id="modal">
+      <div class="header ">
+        <p>Оформление заказа</p>
+      </div>
+      <div class="input">
+        <p>Укажите ссылку на то, что хотите раскрутить</p>
+        <input type="text" placeholder="Введите ссылку">
+      </div>
+      <p class="sum">Итого: <span>0.руб</span></p>
+      <div class="buttons">
+        <button class="close">Закрыть</button>
+        <button class="add">Добавить</button>
+      </div>
     </div>
   </div>
 

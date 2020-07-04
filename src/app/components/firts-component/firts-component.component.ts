@@ -12,4 +12,10 @@ export class FirtsComponentComponent implements OnInit {
   ngOnInit() {
   }
 
+  addOrder() {
+    let modal = document.getElementById('modal');
+    let container = document.getElementById('container');
+    modal.style.top= '100px';
+
+  }
 }
