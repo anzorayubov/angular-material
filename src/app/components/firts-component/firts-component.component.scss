@@ -4,7 +4,6 @@ main {
   }
 
   #modal-overlay {
-    //display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -118,47 +117,6 @@ main {
             color: #439DD5;
           }
         }
-
-        //.btn:checked + .tab {
-        //  display: block;
-        //}
-        //
-        //#hider {
-        //  position: absolute;
-        //  top: -9999px;
-        //  left: -9999px;
-        //}
-        //#hider:checked + .tab {
-        //  display: block;
-        //}
-        //
-        //#clickme {
-        //  text-decoration: underline;
-        //  position: absolute;
-        //  top: 30px;
-        //  right: 20px;
-        //  border: 1px solid #B4B4B4;
-        //  border-radius: 50%;
-        //  background: #fff;
-        //  color: #B4B4B4;
-        //  font-weight: bold;
-        //  width: 30px;
-        //  height: 30px;
-        //  padding: 0;
-        //  cursor: pointer;
-        //  outline: none;
-        //}
-        //
-        //#clickme:after {
-        //  content: '...';
-        //  position: absolute;
-        //  width: 10px;
-        //  font-size: 18px;
-        //  height: 5px;
-        //  left: 6px;
-        //  top: 0;
-        //}
-
 
         .info > span {
           color: black;
@@ -286,15 +244,12 @@ main {
   }
 
   #modal {
-    //width: 620px;
-    //height: 600px;
     border: 1px solid lightgray;
     margin: 0 auto;
     border-radius: 5px;
     background-color: #F7F7F7;
     position: absolute;
     top: 80px;
-    //left: 410px;
     transition: top 200ms;
 
 
@@ -309,7 +264,6 @@ main {
         margin: 0 auto;
         position: absolute;
         top: 50%;
-        //transform: translate(50%, -50%);
       }
 
       button {
@@ -343,7 +297,6 @@ main {
       }
 
       input {
-        //width: 578px;
         height: 48px;
         border: 1px solid #ECECEC;
         border-radius: 5px;
