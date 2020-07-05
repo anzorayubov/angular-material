@@ -1,64 +1,145 @@
 <main>
   <header>
-    <button (click)="addOrder()" class="add_order">Добавить заказ</button>
+    <button (click)="open()" class="add_order">Добавить заказ</button>
   </header>
 
   <div class="container" id="container">
     <div class="orders">
-      <div class="card">
-        <div class="box_1">
-          <div class="logo"></div>
-          <div class="info">
-            <p>Андрей Иванович</p>
-            <span>Пост Инстаграмм</span>
+      <ng-container *ngFor="let item of arr">
+        <div class="card" *ngIf=" (item.type =='account' && item.subscribers !== '') || (item.type =='post' && (item.likes !== '' || item.reposts !== ''))">
+          <div class="box_1">
+            <div class="logo"></div>
+            <div class="info">
+              <!--   Пока ссылка, но должно быть имя фамилия  -->
+              <p>{{item.link}}</p>
+              <span>{{item.type}}</span>
+            </div>
+            <button (click)="removeItem(item.id)">&times;</button>
+          </div>
+          <div class="likes" *ngIf="item.type == 'post' && item.likes">
+            <div class="logo"></div>
+            <div class="info">
+              <p>Лайки</p>
+              <span>{{item.likes}} / 20 000 <span>Приостановлено</span></span>
+<!--              <button (click)="openTab()" class="btn"></button>-->
+              <div class="tab">
+                <button class="resume">
+                  <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.72512 5.52288L0.832933 9.91743C0.568713 10.0859 0.229575 9.98835 0.0754473 9.69955C0.026036 9.60696 0 9.50169 0 9.3945V0.605397C0 0.271045 0.247971 0 0.553859 0C0.651923 0 0.748228 0.0284587 0.832933 0.0824678L7.72512 4.47702C7.98934 4.64549 8.07859 5.01619 7.92446 5.30499C7.87632 5.3952 7.80765 5.47026 7.72512 5.52288Z" fill="#BBDBF0"/></svg>
+                  Возобновить</button>
+                <button class="delete" (click)="removeBox(item.id, $event)">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53082 0.469182C8.90524 -0.156394 7.89099 -0.156394 7.26541 0.469182L5 2.73459L2.73459 0.469182C2.10902 -0.156394 1.09476 -0.156394 0.469182 0.469182C-0.156394 1.09476 -0.156394 2.10902 0.469182 2.73459L2.73459 5L0.469183 7.26541C-0.156393 7.89098 -0.156393 8.90524 0.469182 9.53082C1.09476 10.1564 2.10902 10.1564 2.73459 9.53082L5 7.26541L7.26541 9.53082C7.89098 10.1564 8.90524 10.1564 9.53082 9.53082C10.1564 8.90524 10.1564 7.89098 9.53082 7.26541L7.26541 5L9.53082 2.73459C10.1564 2.10902 10.1564 1.09476 9.53082 0.469182Z" fill="#E2E2E2"/></svg>
+                  Удалить</button>
+              </div>
+              <progress value="{{item.likes}}" max="20000"></progress>
+            </div>
+          </div>
+          <div class="reposts" *ngIf="item.type == 'post' && item.reposts">
+            <div class="logo"></div>
+            <div class="info">
+              <p>Репосты</p>
+              <span>{{item.reposts}} / 20 000 <span>Приостановлено</span></span>
+<!--              <button (click)="openTab()" class="btn"></button>-->
+              <div class="tab" >
+                <button class="resume">
+                  <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.72512 5.52288L0.832933 9.91743C0.568713 10.0859 0.229575 9.98835 0.0754473 9.69955C0.026036 9.60696 0 9.50169 0 9.3945V0.605397C0 0.271045 0.247971 0 0.553859 0C0.651923 0 0.748228 0.0284587 0.832933 0.0824678L7.72512 4.47702C7.98934 4.64549 8.07859 5.01619 7.92446 5.30499C7.87632 5.3952 7.80765 5.47026 7.72512 5.52288Z" fill="#BBDBF0"/></svg>
+                  Возобновить</button>
+                <button class="delete" (click)="removeBox(item.id, $event)">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53082 0.469182C8.90524 -0.156394 7.89099 -0.156394 7.26541 0.469182L5 2.73459L2.73459 0.469182C2.10902 -0.156394 1.09476 -0.156394 0.469182 0.469182C-0.156394 1.09476 -0.156394 2.10902 0.469182 2.73459L2.73459 5L0.469183 7.26541C-0.156393 7.89098 -0.156393 8.90524 0.469182 9.53082C1.09476 10.1564 2.10902 10.1564 2.73459 9.53082L5 7.26541L7.26541 9.53082C7.89098 10.1564 8.90524 10.1564 9.53082 9.53082C10.1564 8.90524 10.1564 7.89098 9.53082 7.26541L7.26541 5L9.53082 2.73459C10.1564 2.10902 10.1564 1.09476 9.53082 0.469182Z" fill="#E2E2E2"/></svg>
+                  Удалить</button>
+              </div>
+              <progress value="{{item.likes}}" max="20000"></progress>
+            </div>
+          </div>
+          <div class="subscribers" *ngIf="item.type == 'account' && item.subscribers">
+            <div class="logo"></div>
+            <div class="info">
+              <p>Подписчики</p>
+              <span>{{item.subscribers}} / 20 000<span *ngIf="isPlay">Приостановлено</span></span>
+<!--              <button class="btn" (click)="openTab()"></button>-->
+              <div class="tab" >
+<!--                <input type="checkbox" [(ngModel)]="isPlay" class="custom-checkbox-play" id="play" name="play" value="yes">-->
+<!--                <label for="play"><svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.72512 5.52288L0.832933 9.91743C0.568713 10.0859 0.229575 9.98835 0.0754473 9.69955C0.026036 9.60696 0 9.50169 0 9.3945V0.605397C0 0.271045 0.247971 0 0.553859 0C0.651923 0 0.748228 0.0284587 0.832933 0.0824678L7.72512 4.47702C7.98934 4.64549 8.07859 5.01619 7.92446 5.30499C7.87632 5.3952 7.80765 5.47026 7.72512 5.52288Z" fill="#BBDBF0"/></svg>-->
+<!--                  Возобновить/Пауза</label>-->
+
+                <button class="resume" (click)="play(item.id, $event)">
+                  <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.72512 5.52288L0.832933 9.91743C0.568713 10.0859 0.229575 9.98835 0.0754473 9.69955C0.026036 9.60696 0 9.50169 0 9.3945V0.605397C0 0.271045 0.247971 0 0.553859 0C0.651923 0 0.748228 0.0284587 0.832933 0.0824678L7.72512 4.47702C7.98934 4.64549 8.07859 5.01619 7.92446 5.30499C7.87632 5.3952 7.80765 5.47026 7.72512 5.52288Z" fill="#BBDBF0"/></svg>
+                  Возобновить</button>
+
+                <button class="delete" (click)="removeBox(item.id, $event)">
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.53082 0.469182C8.90524 -0.156394 7.89099 -0.156394 7.26541 0.469182L5 2.73459L2.73459 0.469182C2.10902 -0.156394 1.09476 -0.156394 0.469182 0.469182C-0.156394 1.09476 -0.156394 2.10902 0.469182 2.73459L2.73459 5L0.469183 7.26541C-0.156393 7.89098 -0.156393 8.90524 0.469182 9.53082C1.09476 10.1564 2.10902 10.1564 2.73459 9.53082L5 7.26541L7.26541 9.53082C7.89098 10.1564 8.90524 10.1564 9.53082 9.53082C10.1564 8.90524 10.1564 7.89098 9.53082 7.26541L7.26541 5L9.53082 2.73459C10.1564 2.10902 10.1564 1.09476 9.53082 0.469182Z" fill="#E2E2E2"/></svg>
+                  Удалить</button>
+              </div>
+
+              <progress value="{{item.subscribers}}" max="20000"></progress>
+            </div>
           </div>
         </div>
-        <div class="likes">
-          <div class="logo"></div>
-          <div class="info">
-            <p>Лайки</p>
-            <span>10 000 / 20 000 <span>Приостановлено</span></span>
-            <button class="btn"></button>
-            <progress value="10000" max="20000"></progress>
-          </div>
-        </div>
-        <div class="reposts">
-          <div class="logo"></div>
-          <div class="info">
-            <p>Репосты</p>
-            <span>10 000 / 20 000 <span>Приостановлено</span></span>
-            <button class="btn"></button>
-            <progress value="10000" max="20000"></progress>
-          </div>
-        </div>
-        <div class="subscribers">
-          <div class="logo"></div>
-          <div class="info">
-            <p>Подписчики</p>
-            <span>10 000 / 20 000<span>Приостановлено</span></span>
-            <button class="btn"></button>
-            <progress value="0" max="20000"></progress>
-          </div>
-        </div>
-      </div>
+      </ng-container>
+
     </div>
   </div>
 
-  <div class="modal-overlay">
-    <div id="modal">
+  <!-- MODAL -->
+
+  <div id="modal-overlay" *ngIf="isOpen">
+    <form id="modal" [formGroup]="form" (ngSubmit)="addOrder()">
       <div class="header ">
         <p>Оформление заказа</p>
+        <button (click)="close()">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M11.9706 0.656854C12.2109 0.897178 12.2109 1.28682 11.9706 1.52714L7.18401 6.31371L11.9706 11.1003C12.2109 11.3406 12.2109 11.7302 11.9706 11.9706C11.7303 12.2109 11.3406 12.2109 11.1003 11.9706L6.31372 7.18399L1.52715 11.9706C1.28683 12.2109 0.89719 12.2109 0.656867 11.9706C0.416544 11.7302 0.416545 11.3406 0.656867 11.1003L5.44344 6.31371L0.656866 1.52714C0.416544 1.28682 0.416544 0.897177 0.656867 0.656854C0.897189 0.416531 1.28683 0.416532 1.52715 0.656854L6.31372 5.44342L11.1003 0.656855C11.3406 0.416532 11.7303 0.416532 11.9706 0.656854Z"
+                  fill="#D8D8D8"/>
+          </svg>
+        </button>
       </div>
       <div class="input">
         <p>Укажите ссылку на то, что хотите раскрутить</p>
-        <input type="text" placeholder="Введите ссылку">
+        <input (keyup)="checkIt($event)" required type="url" placeholder="Введите ссылку" id="link" name="link"
+               formControlName="link">
       </div>
-      <p class="sum">Итого: <span>0.руб</span></p>
+      <div class="inputs" *ngIf="isInstagram || isVk">
+        <div class="likes" *ngIf="isPost">
+          <div class="logo"></div>
+          <div class="info">
+            <!--     сделать как label       -->
+            <p>Лайки</p>
+          </div>
+          <input value="0" type="number" id="likes" name="likes" formControlName="likes" [(ngModel)]="likes">
+        </div>
+        <div class="reposts" *ngIf="isPost">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Репосты</p>
+          </div>
+          <input value="0" type="number" id="reposts" name="reposts" formControlName="reposts" [(ngModel)]="reposts">
+        </div>
+
+        <div class="subscribers" *ngIf="!isPost">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Подписчики</p>
+          </div>
+          <input value="0" type="number" id="" name="subscribers" formControlName="subscribers"
+                 [(ngModel)]="subscribers">
+        </div>
+        <div class="boost">
+          <div class="logo"></div>
+          <div class="info">
+            <p>Увеличенная скорость накрутки в 2 раза <span>Цена: х1,5</span></p>
+          </div>
+          <input type="checkbox" [(ngModel)]="boost" class="custom-checkbox" id="boost" name="boost" value="yes"
+                 formControlName="boost">
+          <label for="boost"></label>
+        </div>
+      </div>
+      <p *ngIf="!boost" class="sum">Итого: <span id="sum">{{+likes + +reposts || 0}}.руб</span></p>
+      <p *ngIf="boost" class="sum">Итого: <span id="sum">{{+likes + +reposts * 1.5 || 0}}.руб</span></p>
       <div class="buttons">
-        <button class="close">Закрыть</button>
-        <button class="add">Добавить</button>
+        <button (click)="close()" type="button" class="close">Закрыть</button>
+        <button [disabled]="form.invalid" type="submit" class="add">Добавить</button>
       </div>
-    </div>
+    </form>
   </div>
 
 </main>
