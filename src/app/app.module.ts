@@ -1,25 +1,22 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialModule} from './material-module';
-import { FirtsComponentComponent } from './components/firts-component/firts-component.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
+import { FirstComponentComponent } from './components/first-component/first-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirtsComponentComponent
+    AngularMaterialComponent,
+    FirstComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
